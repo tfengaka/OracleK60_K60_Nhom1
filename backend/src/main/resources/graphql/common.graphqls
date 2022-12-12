@@ -1,0 +1,19 @@
+directive @hasRoles(roles: [Role]!) on FIELD_DEFINITION
+
+enum Role {
+    admin,
+    user,
+    anonymous
+}
+
+input PaginationInput{
+    page: Int
+    size: Int
+}
+
+type PaginationData {
+    totalElements: Int
+    currentPage: Int
+    totalPages: Int
+    perPage: Int
+}

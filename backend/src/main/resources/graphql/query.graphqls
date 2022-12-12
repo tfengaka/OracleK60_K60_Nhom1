@@ -1,0 +1,11 @@
+type Query {
+    getUsers: [User]
+    getShopsListOfOwner:  [Shops] @hasRoles(roles: [user admin])
+    getCurrentUser: User @hasRoles(roles: [
+        user
+        admin
+    ])
+    getProducts(filter: FilterProductList):ProductListRes @hasRoles(roles: [admin user anonymous])
+    getCategory: [Category] @hasRoles(roles: [user admin anonymous])
+    getListOrders(paginate: PaginationInput): OrderListPaginate @hasRoles(roles: [admin, user])
+}
